@@ -5,12 +5,18 @@
     import {  blur, slide } from "svelte/transition";
     import Tooltip from "sv-tooltip"
 
+    import RightIcon from "$lib/icons/right.svelte";
+
+    import BadgeCheck from "$lib/icons/badge-check.svelte";
+
     let greetings = ['Terminal', 'SSH', 'Command Prompt', 'Shell', 'Console', 'Bash', 'Command Line', 'PowerShell'];
 
     let index = $state(0);
 	let roller: number;
 
     let tooltip = $state("Copy");
+
+    let isBlogHovered = $state(true)
 
     let ssh_command = "ssh pomo.sairashgautam.com.np"
 	
@@ -30,16 +36,35 @@
     }
 
 
+    function handleBlogMouseEnter() {
+		isBlogHovered = true;
+
+		setTimeout(() => {
+			isBlogHovered = false;
+		}, 200);
+	}
+    
+
+
     onDestroy(() => {
 		clearInterval(roller);
 	});
 </script>
 
+<div class="my-16 mb-12 flex justify-center text-sm">
+    <a href="/" class="bg-[#CFF27E] text-black pl-4 pr-2 py-1 shadow-md shadow-[#bfedc1] rounded block max-w-[350px] text-center"  onmouseenter={handleBlogMouseEnter}>
+        <span class="flex justify-center text-[#000] gap-1">
+            <BadgeCheck isHovered={true} size={20} classes="mt-0.5" />
+            <span class="mt-1 -mr-1"><b>Blog: </b> Host Your Own Ssh App </span>
+            <RightIcon isHovered={isBlogHovered} size={24} />
+        </span>
+    </a>
+</div>
 <div class="relative px-4">
 
     <section
         id="homepage-hero"
-        class="border-b border-b-border-light pb-5 pt-12 md:pb-12 md:pt-[120px] "
+        class="border-b border-b-border-light pb-5 pt-12 md:pb-12  "
         
     >
         <section id=":S1:" class="relative-z-5">
@@ -72,7 +97,7 @@
                             Pomodoro
                         </div>
 
-                        <div class="flex justify-center">
+                        <div class="flex justify-center mt-4">
                             <div class="mt-4 py-2 px-4 bg-gray-800 max-w-xs text-left rounded-l">
                                 {ssh_command}
                             </div>
@@ -85,6 +110,10 @@
                                     </button>
                                 </Tooltip>
                             </div>
+                        </div>
+
+                        <div class="mt-5 text-sm font-semibold underline text-[#CFF27E]">
+                            <a href="/">or run it locally</a>
                         </div>
                     </div>
                 </div>
