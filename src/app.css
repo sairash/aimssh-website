@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.border-border-light {
+    border-color: oklch(0.446 0.03 256.802) !important;
+}
+
+.tooltip {
+    color: black !important;
+}
+
+
+.magicpattern {
+    background:
+        radial-gradient(farthest-side at -33.33% 50%, #0000 52%, #151515 54% 57%, #0000 59%) 0 calc(240px/2),
+        radial-gradient(farthest-side at 50% 133.33%, #0000 52%, #151515 54% 57%, #0000 59%) calc(240px/2) 0,
+        radial-gradient(farthest-side at 133.33% 50%, #0000 52%, #151515 54% 57%, #0000 59%),
+        radial-gradient(farthest-side at 50% -33.33%, #0000 52%, #151515 54% 57%, #0000 59%),
+        #000000;
+    background-size: calc(240px/4.667) 240px, 240px calc(240px/4.667);
+}
