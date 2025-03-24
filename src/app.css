@@ -24,3 +24,16 @@ body {
         #000000;
     background-size: calc(240px/4.667) 240px, 240px calc(240px/4.667);
 }
+
+.neon{
+    transform: rotateX(0) rotateY(-25deg);
+    color: #765200;
+    text-shadow: 0 0 5px #765200, 0 0 10px #765200, 0 0 15px #765200;
+}
+
+
+.neon-green{
+    transform: rotateX(0) rotateY(-25deg);
+    color: #65976f;
+    text-shadow: 0 0 5px #65976f, 0 0 10px #65976f, 0 0 15px #65976f, 0 0 20px #65976f, 0 0 35px #65976f, 0 0 40px #65976f;
+}

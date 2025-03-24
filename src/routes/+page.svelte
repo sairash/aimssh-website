@@ -7,6 +7,7 @@
     import Tooltip from "sv-tooltip"
 
     import RightIcon from "$lib/icons/right.svelte";
+    import DownIcon from "$lib/icons/down.svelte";
 
     import BadgeCheck from "$lib/icons/badge-check.svelte";
     import sshpomosairashgautamcomnp from "$lib/assets/sshpomosairashgautamcomnp.png"
@@ -40,15 +41,61 @@
 
     let tooltip = $state("Copy");
 
+    let downInterval: number
     let isBlogHovered = $state(true)
+    let downIconHover = $state(false)
 
     let ssh_command = "ssh pomo.sairashgautam.com.np"
+
+
+
+    let scrollPercent = $state(0);
+    let targetDiv: HTMLElement;
+
+    const calculateScrollPercentage = (element: HTMLElement) => {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + window.scrollY;
+        const elementBottom = rect.bottom + window.scrollY;
+        const viewportHeight = window.innerHeight;
+
+        const start = elementTop - viewportHeight;
+        const end = elementBottom;
+        const currentScroll = window.scrollY;
+
+        if (end === start) {
+        return currentScroll >= elementTop ? 100 : 0;
+        }
+
+        let percentage = ((currentScroll - start) / (end - start)) * 100;
+        return Math.min(100, Math.max(0, percentage));
+    };
 	
 	onMount(() => {
 		roller = setInterval(() => {
 			if (index === greetings.length - 1) index = 0;
 			else index++;
 		}, 2000);
+
+        downInterval = setInterval(()=>{
+            if(scrollPercent < 55) {
+                downIconHover = true
+
+                setTimeout(() => {
+                    downIconHover = false;
+                }, 200);
+            }
+        }, 1000)
+
+
+        const handleScroll = () => {
+        if (!targetDiv) return;
+        scrollPercent = calculateScrollPercentage(targetDiv);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial calculation
+
+        return () => window.removeEventListener('scroll', handleScroll);
 	});
 
     function clickCopyToClipboard() {
@@ -57,6 +104,8 @@
         setTimeout(() => {
             tooltip = "Copy"
         }, 1000);
+
+        
     }
 
 
@@ -69,10 +118,11 @@
 	}
 
     function showLinesFromBottom(text: string, percent:number): string[] {
+        percent = Math.max(10, Math.min(55, percent));
         const lines = text.split('\n');
         const totalLines = lines.length;
 
-        const linesToShow = Math.max(1, Math.round((percent / 100) * (totalLines - 1)) + 1);
+        const linesToShow = Math.max(1, Math.round(((percent - 10) / 45) * (totalLines - 1)) + 1);;
 
         
         return [...Array(5 +totalLines - linesToShow).fill(""), ...lines.slice(totalLines - linesToShow)];
@@ -82,7 +132,11 @@
 
     onDestroy(() => {
 		clearInterval(roller);
+		clearInterval(downInterval);
 	});
+
+
+    
 </script>
 
 <div class="my-16 mb-12 flex justify-center text-sm">
@@ -177,7 +231,7 @@
             </div>
         </section>
 
-        <section id=":S1:" class="relative-z-5">
+        <section id=":S2:" class="relative-z-5">
             <div class="new-container z-10 ">
                 <div
                     class="border border-border-light bg-black py-8"
@@ -237,7 +291,7 @@
 
 
 
-        <section id=":S1:" class="relative-z-5">
+        <section id="maincontent" bind:this={targetDiv} class="relative-z-5">
             <div class="new-container z-10 ">
                 <div
                     class=" border border-border-light bg-black relative flex sm:flex-row-reverse"
@@ -245,15 +299,19 @@
                     <div class="pt-2 hidden sm:block">
                         <div class="text-sm sticky top-20 sm:text-[10px] md:text-[14px] lg:text-[16px] mt-10  sm:right-2 p-2 bg-black sm:inline-block w-full sm:w-auto flex justify-center">
                             <div id="first_tree" class="sm:inline-block text-[#765200] font-bold">
-                                <div class="">
-                                    {#each showLinesFromBottom(tree, 40) as v, i }
+                                <div class="font-bold neon">
+                                    {#each showLinesFromBottom(tree, scrollPercent) as v, i }
                                     <span>
                                         {#each v as every }
-                                            <pre class={["inline" , (every == "#" && i != showLinesFromBottom(tree, 40).length - 1)?"text-[#65976f]":""]} >{every}</pre >
+                                            <pre class={["inline" , (every == "#" && i != showLinesFromBottom(tree, scrollPercent).length - 1)?"text-[#65976f] neon-green":""]} >{every}</pre >
                                         {/each}
                                         <br>
                                     </span>
                                     {/each}
+                                </div>
+                                <div class="text-center mt-2 font-bold flex justify-center gap-1">
+                                    <div class="py-1">Scroll</div>
+                                    <DownIcon isHovered={downIconHover} size={24} />
                                 </div>
                             </div>
                         </div>
@@ -289,7 +347,7 @@
 
                             </div>
 
-                            <div class="mt-10">
+                            <div class="">
                                 <div class="font-bold text-[#bfedc1]">Step [3]: </div>
                                 <div class="mt-3 sm:pl-4">
                                     Select a visual option for the session
@@ -297,24 +355,24 @@
                                     <div class="font-bold">Know more about the visual options:</div>
                                     <div class="ml-4">
                                         <div class="my-2">
-                                            <button id="tree" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">🌲 Tree</button>
-                                            <Popover triggeredBy="#tree" class="w-full sm:w-96 bg-black rounded ml-2">
+                                            <button id="tree" class="text-[#bfedc1] border-2 py-2 px-6.5 cursor-pointer hover:bg-[#bfedc1] hover:text-black rounded">🌲 Tree</button>
+                                            <Popover triggeredBy="#tree" class="w-full max-w-96 bg-black rounded ml-2">
                                                 <div class="text-sm text-center font-bold text-[#CFF27E]">Tree</div>
                                                 <img src={tree_png} class="w-full" alt="">
                                                 <div class="text-sm">This visual option randomly generates a new tree everytime you start a session.</div>
                                             </Popover>
                                         </div>
                                         <div class="my-3">
-                                            <button id="flow" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">🛶 Flow</button>
-                                            <Popover triggeredBy="#flow" class="w-full sm:w-96 bg-black rounded ml-2">
+                                            <button id="flow" class="text-[#bfedc1] border-2 py-2 px-6.5 cursor-pointer hover:bg-[#bfedc1] hover:text-black rounded">🛶 Flow</button>
+                                            <Popover triggeredBy="#flow" class="w-full max-w-96 bg-black rounded ml-2">
                                                 <div class="text-sm text-center font-bold text-[#CFF27E]">Flow</div>
                                                 <img src={flow} class="w-full" alt="">
                                                 <div class="text-sm">This visual option has a guy who is rowing through the "Time River". </div>
                                             </Popover>
                                         </div>
                                         <div class="my-2">
-                                            <button id="coffee" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">☕ Coffee</button>
-                                            <Popover triggeredBy="#coffee" class="w-full sm:w-96 bg-black rounded ml-2">
+                                            <button id="coffee" class="text-[#bfedc1] border-2 py-2 px-4 cursor-pointer hover:bg-[#bfedc1] hover:text-black rounded">☕ Coffee</button>
+                                            <Popover triggeredBy="#coffee" class="w-full max-w-96 bg-black rounded ml-2">
                                                 <div class="text-sm text-center font-bold text-[#CFF27E]">Coffee</div>
                                                 <img src={coffee} class="w-full" alt="">
                                                 <div class="text-sm">This visual option has a coffee mug that filles up over time. </div>
