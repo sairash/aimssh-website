@@ -23,8 +23,9 @@
 					</div>
 					<div class="mt-4">
 						<a
-							href="#get-started"
+							href="https://github.com/sairash/pomossh"
 							class="py-1 px-3 font-semibold text-sm bg-white text-black rounded flex gap-1"
+							target="_blank"
 							>
 							<span class="mt-0.5">Github</span> 
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
