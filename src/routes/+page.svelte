@@ -11,6 +11,8 @@
 
     let greetings = ['Terminal', 'SSH', 'Command Prompt', 'Shell', 'Console', 'Bash', 'Command Line', 'PowerShell'];
 
+  
+
     let index = $state(0);
 	let roller: number;
 
@@ -43,7 +45,6 @@
 			isBlogHovered = false;
 		}, 200);
 	}
-    
 
 
     onDestroy(() => {
@@ -133,6 +134,65 @@
                 />
             </div>
         </div>
-        
+
+        <section class="mt-24 mb-16 text-center flex justify-center">
+            <div class="max-w-lg">
+                <div class="mb-2  text-[#CFF27E]">Focus</div>
+                <div class="text-3xl font-bold text-[#49beaa]">What is the Pomodoro?</div>
+                <!-- <div class="mt-3">A visually appealing and distraction free pomodoro experience right within your terminal.</div> -->
+                <div class="mt-3">A method for staying focused and mentally fresh.</div>
+            </div>
+        </section>
+
+        <section id=":S1:" class="relative-z-5">
+            <div class="new-container z-10 ">
+                <div
+                    class="border border-border-light bg-black "
+                >
+                    <div class="px-5 py-2">
+                        It is a popular time management method which asks you to alternate pomodoros — focused work sessions — with frequent short breaks to promote sustained concentration and stave off mental fatigue.
+                    
+                        <div class="my-6">
+                            <div class="mb-2 text-[#bfedc1] font-bold">Timeline:</div>
+                            <ol class="pl-4">
+                                <li>✏️ Pick a task</li>
+                                <li>⏳ Set a 25 minute timer</li>
+                                <li>🧑🏽‍💻 Work on your task until the task is done.</li>
+                                <li>☕ Take a 5 min break</li>
+                                <li>🌲 Every 4 pomodors, take a longer 15-30 minute break</li>
+                            </ol>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class=" text-[#bfedc1] font-bold">
+                                We love this method because it:
+                            </div>
+
+                            <ol class="mt-2 mb-5  pl-4">
+                                <li>👀 Improves focus</li>
+                                <li>🧿 Minimizes distractions</li>
+                                <li>🪫 Prevents burnout</li>
+                                <li>🥸 Promotes accountability</li>
+                                <li>💪🏽 Boosts motivation</li>
+                            </ol>
+                            <div class="">
+                                <div class=" text-[#bfedc1] font-bold">
+                                    Learn more:
+                                </div>
+    
+                                
+                                <div class="pl-4 mt-2">
+                                    - <a class="border-b-2 text-[#CFF27E]" target="_blank" href="https://www.forbes.com/sites/bryancollinseurope/2020/03/03/the-pomodoro-technique/">Forbs: The Pomodoro Technique Explained </a> <br>
+                                    - <a class="border-b-2 text-[#CFF27E]" target="_blank" href="https://www.youtube.com/watch?v=mNBmG24djoY">Youtube: POMODORO TECHNIQUE - My Favorite Tool .. </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+
     </section>
 </div>
