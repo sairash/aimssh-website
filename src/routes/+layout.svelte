@@ -10,7 +10,7 @@
 <div class="flex justify-center font-mono">
 	<div class="w-full max-w-5xl ">
 		<div
-			class="sticky top-0 z-header z-40 flex min-h-header-height items-center border-b border-border-light border-gray-600 bg-black lg:bg-[#000000b3] lg:backdrop-blur-[8px]"
+			class="sticky top-0 z-header z-40 flex min-h-header-height items-center border-b border-border-light border-gray-600 bg-[#000000b3] backdrop-blur-[8px]"
 		>
 			<div class="new-container w-full">
 				<div class="px-3 md:px-4 py-2 flex justify-between">

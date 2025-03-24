@@ -25,6 +25,7 @@
 	},
 	"dependencies": {
 		"@svelte-plugins/tooltips": "^3.0.3",
+		"flowbite-svelte": "^0.48.4",
 		"sv-tooltip": "^0.2.5"
 	}
 }

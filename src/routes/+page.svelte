@@ -2,16 +2,38 @@
 	import background from "$lib/assets/background-dark-green.png";
 	import demo from "$lib/assets/demo-small-screen.png";
     import { onDestroy, onMount } from "svelte";
+    import { Popover} from 'flowbite-svelte';
     import {  blur, slide } from "svelte/transition";
     import Tooltip from "sv-tooltip"
 
     import RightIcon from "$lib/icons/right.svelte";
 
     import BadgeCheck from "$lib/icons/badge-check.svelte";
+    import sshpomosairashgautamcomnp from "$lib/assets/sshpomosairashgautamcomnp.png"
+    import step2 from "$lib/assets/step2.png"
+    import step3 from "$lib/assets/step3.png"
+    import tree_png from "$lib/assets/tree.png"
+    import flow from "$lib/assets/flow.png"
+    import coffee from "$lib/assets/coffee.png"
 
     let greetings = ['Terminal', 'SSH', 'Command Prompt', 'Shell', 'Console', 'Bash', 'Command Line', 'PowerShell'];
 
-  
+    let tree = `
+                 ######
+              ### |######
+              #\\/\\  \\/ //##
+             #    | /| / \\/#
+            #\\  |        / ##
+            #\\ \\\\  /  /    /#
+            #    \\\\|  | / //#
+                   |  //
+                   \\ / 
+                    \\/
+
+                    /  
+                    |
+                    |
+########################################`
 
     let index = $state(0);
 	let roller: number;
@@ -45,6 +67,17 @@
 			isBlogHovered = false;
 		}, 200);
 	}
+
+    function showLinesFromBottom(text: string, percent:number): string[] {
+        const lines = text.split('\n');
+        const totalLines = lines.length;
+
+        const linesToShow = Math.max(1, Math.round((percent / 100) * (totalLines - 1)) + 1);
+
+        
+        return [...Array(5 +totalLines - linesToShow).fill(""), ...lines.slice(totalLines - linesToShow)];
+    }
+    
 
 
     onDestroy(() => {
@@ -113,8 +146,8 @@
                             </div>
                         </div>
 
-                        <div class="mt-5 text-sm font-semibold underline text-[#CFF27E]">
-                            <a href="/">or run it locally</a>
+                        <div class="mt-5 text-sm font-semibold text-[#CFF27E]">
+                            <a href="/" class="border-b-2">or run it locally</a>
                         </div>
                     </div>
                 </div>
@@ -147,7 +180,7 @@
         <section id=":S1:" class="relative-z-5">
             <div class="new-container z-10 ">
                 <div
-                    class="border border-border-light bg-black "
+                    class="border border-border-light bg-black py-8"
                 >
                     <div class="px-5 py-2">
                         It is a popular time management method which asks you to alternate pomodoros — focused work sessions — with frequent short breaks to promote sustained concentration and stave off mental fatigue.
@@ -194,5 +227,117 @@
         </section>
 
 
+        <section class="mt-24 mb-16 text-center flex justify-center">
+            <div class="max-w-lg">
+                <div class="mb-2  text-[#CFF27E]">Convenient</div>
+                <div class="text-3xl font-bold text-[#49beaa]">What is the Pomossh?</div>
+                <div class="mt-3">A visually appealing and distraction free pomodoro experience right within your terminal.</div>
+            </div>
+        </section>
+
+
+
+        <section id=":S1:" class="relative-z-5">
+            <div class="new-container z-10 ">
+                <div
+                    class=" border border-border-light bg-black relative flex sm:flex-row-reverse"
+                >
+                    <div class="pt-2 hidden sm:block">
+                        <div class="text-sm sticky top-20 sm:text-[10px] md:text-[14px] lg:text-[16px] mt-10  sm:right-2 p-2 bg-black sm:inline-block w-full sm:w-auto flex justify-center">
+                            <div id="first_tree" class="sm:inline-block text-[#765200] font-bold">
+                                <div class="">
+                                    {#each showLinesFromBottom(tree, 40) as v, i }
+                                    <span>
+                                        {#each v as every }
+                                            <pre class={["inline" , (every == "#" && i != showLinesFromBottom(tree, 40).length - 1)?"text-[#65976f]":""]} >{every}</pre >
+                                        {/each}
+                                        <br>
+                                    </span>
+                                    {/each}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-5 pt-10 pb-[72px]  border-r-2 border-border-light ">
+                        <p class="intro">
+                            Introducing a fresh take on productivity, a unique Pomodoro Timer app designed specifically for the terminal enthusiasts and tech-savvy professionals. 
+                            <span class="my-2 block">
+                                This minimalist design keeps your focus on tasks without the clutter of traditional apps. 
+                            </span>
+                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.sairashgautam.com.np</span>, allowing you to manage your sessions remotely, whether you're on your local machine or accessing it from a server. 
+                                <br>
+                                <br>
+                                Let's see how to use pomossh:
+                        </p>
+                        <div class="sm:ml-4 mt-5">
+                            <div class="">
+                                <div class="font-bold text-[#bfedc1]">Step [1]:</div>
+                                <div class="mt-3 sm:pl-4">
+                                    Run the following comamnd in your terminal 
+                                    <img src={sshpomosairashgautamcomnp} class="w-full" alt="">
+                                    or install it locally.
+                                </div>
+
+                            </div>
+
+                            <div class="mt-10">
+                                <div class="font-bold text-[#bfedc1]">Step [2]: </div>
+                                <div class="mt-3 sm:pl-4">
+                                    Enter the time in minutes and also session "Title"
+                                    <img src={step2} class="w-full" alt="">
+                                </div>
+
+                            </div>
+
+                            <div class="mt-10">
+                                <div class="font-bold text-[#bfedc1]">Step [3]: </div>
+                                <div class="mt-3 sm:pl-4">
+                                    Select a visual option for the session
+                                    <img src={step3} class="w-full" alt="">
+                                    <div class="font-bold">Know more about the visual options:</div>
+                                    <div class="ml-4">
+                                        <div class="my-2">
+                                            <button id="tree" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">🌲 Tree</button>
+                                            <Popover triggeredBy="#tree" class="w-full sm:w-96 bg-black rounded ml-2">
+                                                <div class="text-sm text-center font-bold text-[#CFF27E]">Tree</div>
+                                                <img src={tree_png} class="w-full" alt="">
+                                                <div class="text-sm">This visual option randomly generates a new tree everytime you start a session.</div>
+                                            </Popover>
+                                        </div>
+                                        <div class="my-3">
+                                            <button id="flow" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">🛶 Flow</button>
+                                            <Popover triggeredBy="#flow" class="w-full sm:w-96 bg-black rounded ml-2">
+                                                <div class="text-sm text-center font-bold text-[#CFF27E]">Flow</div>
+                                                <img src={flow} class="w-full" alt="">
+                                                <div class="text-sm">This visual option has a guy who is rowing through the "Time River". </div>
+                                            </Popover>
+                                        </div>
+                                        <div class="my-2">
+                                            <button id="coffee" class="text-[#bfedc1] border-b-2 cursor-pointer -pb-1">☕ Coffee</button>
+                                            <Popover triggeredBy="#coffee" class="w-full sm:w-96 bg-black rounded ml-2">
+                                                <div class="text-sm text-center font-bold text-[#CFF27E]">Coffee</div>
+                                                <img src={coffee} class="w-full" alt="">
+                                                <div class="text-sm">This visual option has a coffee mug that filles up over time. </div>
+                                            </Popover>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-10">
+                                <div class="font-bold text-[#bfedc1]">Step [4]:</div>
+                                <div class="mt-3 sm:pl-4">
+                                    Work! 
+                                    <img src={flow} class="w-full" alt="">
+                                    <div class="text-sm">Unfortunately notifications will appear only if you install the app.</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 </div>
