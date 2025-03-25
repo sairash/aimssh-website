@@ -77,7 +77,7 @@
 		}, 2000);
 
         downInterval = setInterval(()=>{
-            if(scrollPercent < 55) {
+            if(scrollPercent < 68) {
                 downIconHover = true
 
                 setTimeout(() => {
@@ -118,11 +118,11 @@
 	}
 
     function showLinesFromBottom(text: string, percent:number): string[] {
-        percent = Math.max(10, Math.min(55, percent));
+        percent = Math.max(10, Math.min(68, percent));
         const lines = text.split('\n');
         const totalLines = lines.length;
 
-        const linesToShow = Math.max(1, Math.round(((percent - 10) / 45) * (totalLines - 1)) + 1);;
+        const linesToShow = Math.max(1, Math.round(((percent - 10) / 58) * (totalLines - 1)) + 1);;
 
         
         return [...Array(5 +totalLines - linesToShow).fill(""), ...lines.slice(totalLines - linesToShow)];
@@ -201,7 +201,7 @@
                         </div>
 
                         <div class="mt-5 text-sm font-semibold text-[#CFF27E]">
-                            <a href="/" class="border-b-2">or run it locally</a>
+                            <a href="/#install-local" class="border-b-2">or run it locally</a>
                         </div>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
         <section class="mt-24 mb-16 text-center flex justify-center">
             <div class="max-w-lg">
                 <div class="mb-2  text-[#CFF27E]">Focus</div>
-                <div class="text-3xl font-bold text-[#49beaa]">What is the Pomodoro?</div>
+                <div class="text-3xl font-bold text-[#49beaa]">What is Pomodoro?</div>
                 <!-- <div class="mt-3">A visually appealing and distraction free pomodoro experience right within your terminal.</div> -->
                 <div class="mt-3">A method for staying focused and mentally fresh.</div>
             </div>
@@ -284,7 +284,7 @@
         <section class="mt-24 mb-16 text-center flex justify-center">
             <div class="max-w-lg">
                 <div class="mb-2  text-[#CFF27E]">Convenient</div>
-                <div class="text-3xl font-bold text-[#49beaa]">What is the Pomossh?</div>
+                <div class="text-3xl font-bold text-[#49beaa]">What is Pomossh?</div>
                 <div class="mt-3">A visually appealing and distraction free pomodoro experience right within your terminal.</div>
             </div>
         </section>
@@ -322,7 +322,7 @@
                             <span class="my-2 block">
                                 This minimalist design keeps your focus on tasks without the clutter of traditional apps. 
                             </span>
-                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.sairashgautam.com.np</span>, allowing you to manage your sessions remotely, whether you're on your local machine or accessing it from a server. 
+                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.sairashgautam.com.np</span>, allowing you to manage your sessions remotely, whether you're on your local machine or from a server. 
                                 <br>
                                 <br>
                                 Let's see how to use pomossh:
@@ -359,7 +359,7 @@
                                             <Popover triggeredBy="#tree" class="w-full max-w-96 bg-black rounded ml-2">
                                                 <div class="text-sm text-center font-bold text-[#CFF27E]">Tree</div>
                                                 <img src={tree_png} class="w-full" alt="">
-                                                <div class="text-sm">This visual option randomly generates a new tree everytime you start a session.</div>
+                                                <div class="text-sm">This visual option procedurally generates a random tree everytime you start a session.</div>
                                             </Popover>
                                         </div>
                                         <div class="my-3">
@@ -395,6 +395,88 @@
                         </div>
                     </div>
                 </div>
+                <section id="install-local" class="mt-24 mb-16 text-center flex justify-center">
+                    <div class="max-w-lg">
+                        <div class="mb-2  text-[#CFF27E]">Homeground</div>
+                        <div class="text-3xl font-bold text-[#49beaa]">Install Pomossh Locally?</div>
+                        <div class="mt-3">Install pomossh in your own device with a single bash script.</div>
+                    </div>
+                </section>
+
+                <section id=":S2:" class="relative-z-5">
+                    <div class="new-container z-10 ">
+                        <div
+                            class="border border-border-light bg-black py-8"
+                        >
+                            <div class="px-5 py-2">
+                                To install pomossh locally run the following command.
+                                <div class="my-6">
+                                    <div class="mb-2 text-[#bfedc1] font-bold">Linux/MAC:</div>
+                                    <div class="px-4 py-2 rounded bg-gray-800 text-sm">
+                                        curl -sSL https://gist.githubusercontent.com/sairash/f07c0d194c755fdd6c4fe39d0010ec30/raw | bash
+                                    </div>
+                                </div>
+        
+                                <div class="mb-4">
+                                    <div class=" text-[#bfedc1] font-bold">
+                                        Windows:
+                                    </div>
+        
+                                    <div class="mt-2 mb-5 px-4 py-2 rounded bg-gray-800 text-sm overflow-auto">
+                                        curl -sSL https://gist.githubusercontent.com/sairash/d6ce0c6a627f932dd105f17209d1b0e2/raw/20c42bfbafb09bf495cda7a77fe33fcab0055e6a/install_pomo.ps1 | powershell -c -
+                                    </div>
+                                    or 
+                                    <div class="mt-2">
+                                        <div class=" text-[#bfedc1] font-bold">
+                                            Install manually:
+                                        </div>
+            
+                                        
+                                        <div class="pl-4 mt-2">
+                                            <div class="px-4 py-2 rounded bg-gray-800 text-sm">
+                                                git clone https://github.com/sairash/pomossh
+                                            </div>
+                                            <div class="px-4 py-2 rounded bg-gray-800 text-sm mt-3">
+                                               cd pomossh
+                                            </div>
+                                            <div class="px-4 py-2 rounded bg-gray-800 text-sm mt-3">
+                                                go build
+                                             </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="mt-8">
+                                        and
+                                        <div class=" text-[#bfedc1] font-bold mt-4">
+                                            Run pomossh as client:
+                                        </div>
+            
+                                        
+                                        <div class="pl-4 mt-2">
+                                            <div class="px-4 py-2 rounded bg-gray-800 text-sm">
+                                                pomossh
+                                            </div>
+                                        </div>
+
+                                        <div class=" text-[#bfedc1] font-bold mt-6">
+                                            Run pomossh as server:
+                                        </div>
+            
+                                        
+                                        <div class="pl-4 mt-2">
+                                            <div class="px-4 py-2 rounded bg-gray-800 text-sm">
+                                                pomossh -ssh true
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                     <div class="my-5 text-center">Made With ❤️ by <a href="https://sairashgautam.com.np" target="_blank" class="border-b-2 text-[#CFF27E]" rel="noopener noreferrer">Sairash</a>.</div>
+                </section>
             </div>
         </section>
     </section>
