@@ -140,7 +140,7 @@
 </script>
 
 <div class="my-16 mb-12 flex justify-center text-sm">
-    <a href="/" class="bg-[#CFF27E] text-black pl-4 pr-2 py-1 shadow-md shadow-[#bfedc1] rounded block max-w-[350px] text-center"  onmouseenter={handleBlogMouseEnter}>
+    <a href="https://sairash.hashnode.dev/how-to-host-a-ssh-app-using-nginx" class="bg-[#CFF27E] text-black pl-4 pr-2 py-1 shadow-md shadow-[#bfedc1] rounded block max-w-[350px] text-center"  onmouseenter={handleBlogMouseEnter}>
         <span class="flex justify-center text-[#000] gap-1">
             <BadgeCheck isHovered={true} size={20} classes="mt-0.5" />
             <span class="mt-1 -mr-1"><b>Blog: </b> Host Your Own Ssh App </span>
