@@ -13,9 +13,10 @@
     import sshpomosairashgautamcomnp from "$lib/assets/sshpomosairashgautamcomnp.png"
     import step2 from "$lib/assets/step2.png"
     import step3 from "$lib/assets/step3.png"
-    import tree_png from "$lib/assets/tree.png"
+    import tree_png from "$lib/assets/tree.gif"
+    import flowgif from "$lib/assets/flow.gif"
     import flow from "$lib/assets/flow.png"
-    import coffee from "$lib/assets/coffee.png"
+    import coffee from "$lib/assets/coffee.gif"
 
     let greetings = ['Terminal', 'SSH', 'Command Prompt', 'Shell', 'Console', 'Bash', 'Command Line', 'PowerShell'];
 
@@ -366,7 +367,7 @@
                                             <button id="flow" class="text-[#bfedc1] border-2 py-2 px-6.5 cursor-pointer hover:bg-[#bfedc1] hover:text-black rounded">🛶 Flow</button>
                                             <Popover triggeredBy="#flow" class="w-full max-w-96 bg-black rounded ml-2">
                                                 <div class="text-sm text-center font-bold text-[#CFF27E]">Flow</div>
-                                                <img src={flow} class="w-full" alt="">
+                                                <img src={flowgif} class="w-full" alt="">
                                                 <div class="text-sm">This visual option has a guy who is rowing through the "Time River". </div>
                                             </Popover>
                                         </div>
