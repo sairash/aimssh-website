@@ -46,7 +46,7 @@
     let isBlogHovered = $state(true)
     let downIconHover = $state(false)
 
-    let ssh_command = "ssh pomo.sairashgautam.com.np"
+    let ssh_command = "ssh pomo.ftp.sh"
 
 
 
@@ -141,7 +141,7 @@
 </script>
 
 <div class="my-16 mb-12 flex justify-center text-sm">
-    <a href="https://sairash.hashnode.dev/how-to-host-a-ssh-app-using-nginx" class="bg-[#CFF27E] text-black pl-4 pr-2 py-1 shadow-md shadow-[#bfedc1] rounded block max-w-[350px] text-center"  onmouseenter={handleBlogMouseEnter}>
+    <a href="https://sairash.hashnode.dev/how-to-host-a-ssh-app-using-nginx" target="_blank" class="bg-[#CFF27E] text-black pl-4 pr-2 py-1 shadow-md shadow-[#bfedc1] rounded block max-w-[350px] text-center"  onmouseenter={handleBlogMouseEnter}>
         <span class="flex justify-center text-[#000] gap-1">
             <BadgeCheck isHovered={true} size={20} classes="mt-0.5" />
             <span class="mt-1 -mr-1"><b>Blog: </b> Host Your Own Ssh App </span>
@@ -187,7 +187,7 @@
                         </div>
 
                         <div class="flex justify-center mt-4">
-                            <div class="mt-4 py-2 px-4 bg-gray-800 max-w-xs text-left rounded-l">
+                            <div class="mt-4 py-2 px-4 bg-gray-800 w-full max-w-xs rounded-l">
                                 {ssh_command}
                             </div>
                             <div class="mt-4 bg-white text-black text-left rounded-r" >
@@ -323,7 +323,7 @@
                             <span class="my-2 block">
                                 This minimalist design keeps your focus on tasks without the clutter of traditional apps. 
                             </span>
-                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.sairashgautam.com.np</span>, allowing you to manage your sessions remotely, whether you're on your local machine or from a server. 
+                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.ftp.sh</span>, allowing you to manage your sessions remotely, whether you're on your local machine or from a server. 
                                 <br>
                                 <br>
                                 Let's see how to use pomossh:
