@@ -135,9 +135,6 @@
 		clearInterval(roller);
 		clearInterval(downInterval);
 	});
-
-
-    
 </script>
 
 <div class="my-16 mb-12 flex justify-center text-sm">
@@ -323,11 +320,35 @@
                             <span class="my-2 block">
                                 This minimalist design keeps your focus on tasks without the clutter of traditional apps. 
                             </span>
-                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">ssh pomo.ftp.sh</span>, allowing you to manage your sessions remotely, whether you're on your local machine or from a server. 
+                                Furthermore, the app offers the ability to SSH into it using a command <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">{ssh_command}</span>, allowing you to manage your sessions remotely, whether you're on your local machine or from a server. 
                                 <br>
                                 <br>
-                                Let's see how to use pomossh:
                         </p>
+                        <div class="py-2">
+                        
+                            <div class="my-2">
+                                <div class="mb-2 text-[#bfedc1] font-bold">Why Choose PomoSSH?</div>
+                                <ol class="pl-4">
+                                    <li class="">
+                                        <div class="">⏱️ Flexible Session Management</div>
+                                        <p class="pl-7 my-2">- Customize session duration, titles, and switch between infinite sessions using simple keyboard controls (n/new, r/restart).</p>
+                                    </li>
+                                    <li><div class="">🔔 Smart Notifications (Local only)</div>
+                                        <p class="pl-7 my-2">- Get desktop notifications when running locally (requires local installation).</p>
+                                    </li>
+                                    <li><div class="">🔧 Dual Mode Operation</div>
+                                        <p class="pl-7 my-2">- Use remotely via SSH or install locally.</p>
+                                    </li>
+                                    <li><div class="">🚀 Get Started in 2 Seconds</div>
+                                        <p class="pl-7 my-2">- Just use the <span class="text-[#CFF27E] bg-zinc-800 rounded px-2 py-1 inline-block">{ssh_command}</span> command or install locally.</p>
+                                    </li>
+                                </ol>
+                            </div>
+    
+                        </div>
+                        <div class="mt-9">
+                            <span class="border-b-2 pb-1">Let's see how to use pomossh:</span>
+                        </div>
                         <div class="sm:ml-4 mt-5">
                             <div class="">
                                 <div class="font-bold text-[#bfedc1]">Step [1]:</div>
