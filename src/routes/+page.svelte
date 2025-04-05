@@ -46,7 +46,7 @@
     let isBlogHovered = $state(true)
     let downIconHover = $state(false)
 
-    let ssh_command = "ssh pomo.ftp.sh"
+    let ssh_command = "ssh aim.ftp.sh"
 
 
 
@@ -180,7 +180,7 @@
                             {/key}
                         </div>
                         <div class="mt-4 text-xl font-semibold">
-                            Pomodoro
+                            Applications
                         </div>
 
                         <div class="flex justify-center mt-4">
@@ -282,7 +282,7 @@
         <section class="mt-24 mb-16 text-center flex justify-center">
             <div class="max-w-lg">
                 <div class="mb-2  text-[#CFF27E]">Convenient</div>
-                <div class="text-3xl font-bold text-[#49beaa]">What is Pomossh?</div>
+                <div class="text-3xl font-bold text-[#49beaa]">What is Aimssh?</div>
                 <div class="mt-3">A visually appealing and distraction free pomodoro experience right within your terminal.</div>
             </div>
         </section>
@@ -347,7 +347,7 @@
     
                         </div>
                         <div class="mt-9">
-                            <span class="border-b-2 pb-1">Let's see how to use pomossh:</span>
+                            <span class="border-b-2 pb-1">Let's see how to use aimssh:</span>
                         </div>
                         <div class="sm:ml-4 mt-5">
                             <div class="">
@@ -420,8 +420,8 @@
                 <section id="install-local" class="mt-24 mb-16 text-center flex justify-center">
                     <div class="max-w-lg">
                         <div class="mb-2  text-[#CFF27E]">Homeground</div>
-                        <div class="text-3xl font-bold text-[#49beaa]">Install Pomossh Locally?</div>
-                        <div class="mt-3">Install pomossh in your own device with a single bash script.</div>
+                        <div class="text-3xl font-bold text-[#49beaa]">Install Aimssh Locally?</div>
+                        <div class="mt-3">Install aimssh in your own device with a single bash script.</div>
                     </div>
                 </section>
 
@@ -431,7 +431,7 @@
                             class="border border-border-light bg-black py-8"
                         >
                             <div class="px-5 py-2">
-                                To install pomossh locally run the following command.
+                                To install aimssh locally run the following command.
                                 <div class="my-6">
                                     <div class="mb-2 text-[#bfedc1] font-bold">Linux/MAC:</div>
                                     <div class="px-4 py-2 rounded bg-gray-800 text-sm">
@@ -456,10 +456,10 @@
                                         
                                         <div class="pl-4 mt-2">
                                             <div class="px-4 py-2 rounded bg-gray-800 text-sm">
-                                                git clone https://github.com/sairash/pomossh
+                                                git clone https://github.com/sairash/aimssh
                                             </div>
                                             <div class="px-4 py-2 rounded bg-gray-800 text-sm mt-3">
-                                               cd pomossh
+                                               cd aimssh
                                             </div>
                                             <div class="px-4 py-2 rounded bg-gray-800 text-sm mt-3">
                                                 go build
@@ -471,24 +471,24 @@
                                     <div class="mt-8">
                                         and
                                         <div class=" text-[#bfedc1] font-bold mt-4">
-                                            Run pomossh as client:
+                                            Run aimssh as client:
                                         </div>
             
                                         
                                         <div class="pl-4 mt-2">
                                             <div class="px-4 py-2 rounded bg-gray-800 text-sm">
-                                                pomossh
+                                                aimssh
                                             </div>
                                         </div>
 
                                         <div class=" text-[#bfedc1] font-bold mt-6">
-                                            Run pomossh as server:
+                                            Run aimssh as server:
                                         </div>
             
                                         
                                         <div class="pl-4 mt-2">
                                             <div class="px-4 py-2 rounded bg-gray-800 text-sm">
-                                                pomossh -ssh true
+                                                aimssh -ssh true
                                             </div>
                                         </div>
                                     </div>

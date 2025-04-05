@@ -18,7 +18,7 @@
 						<img src={logo} class="h-16" alt="Logo" />
 						<div class="mt-1 text-[#49beaa]">
 							<img src={logoText} alt="Pomo SSH" class="h-9 -ml-1">
-							<div class="text-sm">Pomodoro in Terminal</div>
+							<div class="text-sm">Applications in Terminal</div>
 						</div>
 					</div>
 					<div class="mt-4">
